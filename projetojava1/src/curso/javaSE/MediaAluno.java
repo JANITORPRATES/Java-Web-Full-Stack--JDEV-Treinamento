@@ -7,7 +7,7 @@ public class MediaAluno {
 		int nota1 = 10;
 		int nota2 = 60;
 		int nota3 = 80;
-		int nota4 = 10;
+		int nota4 = 50;
 
 		double media = (nota1 + nota2 + nota3 + nota4) / 4.0;
 
