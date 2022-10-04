@@ -25,9 +25,17 @@ public class TesteAluno {
 		aluno1.setDataMatricula("01/10/2022");
 		aluno1.setSerieMatriculado("1");
 		
+		aluno1.setNota1(90);
+		aluno1.setNota2(80.8);
+		aluno1.setNota3(70.9);
+		aluno1.setNota4(90.7);
+		
 		System.out.println("Nome é = " + aluno1.getNome());
 		System.out.println("Idade é = " + aluno1.getIdade());
 		System.out.println("Nascido em = " + aluno1.getDataNascimento());
+		System.out.println("Média da nota é = " + aluno1.getMediaNota());
+		System.out.println("Resultado = " + (aluno1.getAlunoAprovado() ? "Aprovado" : "Reprovado"));
+		System.out.println("Resultado = " + aluno1.getAlunoAprovado2());
 		
 		System.out.println("--------------------------------------------------------------------");
 		
@@ -40,7 +48,7 @@ public class TesteAluno {
 		System.out.println("Nome é = " + aluno2.getNome());
 		System.out.println("Idade é = " + aluno2.getIdade());
 		System.out.println("Nascido em = " + aluno2.getDataNascimento());
-		
+				
 		/*--------------------------------------------------------------------*/
 		
 		Aluno aluno3 = new Aluno();
