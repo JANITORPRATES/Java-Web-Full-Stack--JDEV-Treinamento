@@ -56,9 +56,11 @@ public class TesteAluno {
 		
 		Aluno aluno1 = new Aluno();
 		aluno1.setNome("Jânitor");
+		aluno1.setNumeroCpf("123");
 		
 		Aluno aluno2 = new Aluno();
 		aluno2.setNome("Jânitor");
+		aluno1.setNumeroCpf("1234");
 		
 		//Na vida real aluno1 e aluno2 são exatamente o mesmo aluno
 		//No java aluno1 e aluno2 são 2 objetos diferentes

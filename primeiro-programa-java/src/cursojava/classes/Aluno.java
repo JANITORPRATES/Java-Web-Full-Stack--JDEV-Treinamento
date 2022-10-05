@@ -188,6 +188,7 @@ public class Aluno {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((numeroCpf == null) ? 0 : numeroCpf.hashCode());
 		return result;
 	}
 
@@ -205,9 +206,15 @@ public class Aluno {
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
+		if (numeroCpf == null) {
+			if (other.numeroCpf != null)
+				return false;
+		} else if (!numeroCpf.equals(other.numeroCpf))
+			return false;
 		return true;
 	}
 
+	
 	
 	
 }//fim da classe
