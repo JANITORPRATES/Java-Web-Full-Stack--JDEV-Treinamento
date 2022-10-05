@@ -9,7 +9,7 @@ public class TesteAluno {
 	/*Main é um método auto executável em Java*/
 	public static void main(String[] parametros) {
 		
-		/*String nome = JOptionPane.showInputDialog("Qual o nome do aluno?");
+		String nome = JOptionPane.showInputDialog("Qual o nome do aluno?");
 		String idade = JOptionPane.showInputDialog("Qual a idade?");
 		String dataNascimento = JOptionPane.showInputDialog("Data de nascimento?");
 		String rg = JOptionPane.showInputDialog("Registro Geral?");
@@ -19,9 +19,17 @@ public class TesteAluno {
 		String matricula = JOptionPane.showInputDialog("Data da matricula");
 		String serie = JOptionPane.showInputDialog("Qual a serie");
 		String escola = JOptionPane.showInputDialog("Nome da escola");
+		
+		String disciplina1 = JOptionPane.showInputDialog("Disciplina 1?");
 		String nota1 = JOptionPane.showInputDialog("Nota 1");
+		
+		String disciplina2 = JOptionPane.showInputDialog("Disciplina 2?");
 		String nota2 = JOptionPane.showInputDialog("Nota 2");
+		
+		String disciplina3 = JOptionPane.showInputDialog("Disciplina 3?");
 		String nota3 = JOptionPane.showInputDialog("Nota 3");
+		
+		String disciplina4 = JOptionPane.showInputDialog("Disciplina 4?");
 		String nota4 = JOptionPane.showInputDialog("Nota 4");
 		
 		
@@ -47,32 +55,15 @@ public class TesteAluno {
 		aluno1.setNota3(Double.parseDouble(nota3));
 		aluno1.setNota4(Double.parseDouble(nota4));
 		
+		aluno1.setDisciplina1(disciplina1);
+		aluno1.setDisciplina2(disciplina2);
+		aluno1.setDisciplina3(disciplina3);
+		aluno1.setDisciplina4(disciplina4);
+		
 		System.out.println(aluno1.toString());
-		System.out.println(aluno1);//Internamente chama o metodo toString()
 		System.out.println("Média do aluno = " + aluno1.getMediaNota());
-		System.out.println("Resultado = " + aluno1.getAlunoAprovado2());*/
-		
-		//Equals e hashcode (Diferenciar e comparar objetos)
-		
-		Aluno aluno1 = new Aluno();
-		aluno1.setNome("Jânitor");
-		aluno1.setNumeroCpf("123");
-		
-		Aluno aluno2 = new Aluno();
-		aluno2.setNome("Jânitor");
-		aluno1.setNumeroCpf("1234");
-		
-		//Na vida real aluno1 e aluno2 são exatamente o mesmo aluno
-		//No java aluno1 e aluno2 são 2 objetos diferentes
-		/*Se a gente quiser que no nosso código que a regra de negócio desse sistema
-		 * que esses dois objetos devem ser considerados iguais, a gente tem que 
-		 * sobrescrever os metódos Equals hascode */
-		
-		if (aluno1.equals(aluno2)) {
-			System.out.println("Alunos são iguais");
-		}else {
-			System.out.println("Alunos não são iguais");
-		}
-	}
+		System.out.println("Resultado = " + aluno1.getAlunoAprovado2());
 
-}
+	}//Fim do main
+}//Fim da classe
+

@@ -1,7 +1,5 @@
 package cursojava.classes;
 
-import java.util.Objects;
-
 /*Esta é nossa classe/objeto que representa o Aluno*/
 public class Aluno {
 	
@@ -22,6 +20,11 @@ public class Aluno {
 	private double nota3;
 	private double nota4;
 	
+	private String disciplina1;
+	private String disciplina2;
+	private String disciplina3;
+	private String disciplina4;
+	
 	
 	public Aluno() { /*Cria os dados na memória - Sendo o padrão do Java.
 	Caso não tenha o java cria esse construtor implicitamente em tempo de execução*/
@@ -37,7 +40,38 @@ public class Aluno {
 		idade = idadePadrao;
 	}
 
-	
+	public String getDisciplina1() {
+		return disciplina1;
+	}
+
+	public void setDisciplina1(String disciplina1) {
+		this.disciplina1 = disciplina1;
+	}
+
+	public String getDisciplina2() {
+		return disciplina2;
+	}
+
+	public void setDisciplina2(String disciplina2) {
+		this.disciplina2 = disciplina2;
+	}
+
+	public String getDisciplina3() {
+		return disciplina3;
+	}
+
+	public void setDisciplina3(String disciplina3) {
+		this.disciplina3 = disciplina3;
+	}
+
+	public String getDisciplina4() {
+		return disciplina4;
+	}
+
+	public void setDisciplina4(String disciplina4) {
+		this.disciplina4 = disciplina4;
+	}
+
 	public double getNota1() {
 		return nota1;
 	}
@@ -176,11 +210,12 @@ public class Aluno {
 
 	@Override
 	public String toString() {
-		return "Aluno [nome=" + getNome() + ", idade=" + getIdade() + ", dataNascimento=" + dataNascimento + ", registroGeral="
+		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
 				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
 				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculado="
 				+ serieMatriculado + ", nota1=" + nota1 + ", nota2=" + nota2 + ", nota3=" + nota3 + ", nota4=" + nota4
-				+ "]";
+				+ ", disciplina1=" + disciplina1 + ", disciplina2=" + disciplina2 + ", disciplina3=" + disciplina3
+				+ ", disciplina4=" + disciplina4 + "]";
 	}
 
 	@Override
