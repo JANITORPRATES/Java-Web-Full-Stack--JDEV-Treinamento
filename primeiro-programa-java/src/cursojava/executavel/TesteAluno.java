@@ -25,13 +25,11 @@ public class TesteAluno {
 		String nota4 = JOptionPane.showInputDialog("Nota 4");
 		
 		
-		
-		
-		Aluno aluno1;/*Objeto ainda não existe na memória*/
+		Aluno aluno1;//Objeto ainda não existe na memória
 		aluno1 = new Aluno(); //agora passa a existir na memória
 		
-		/*new Aluno() é uma instância (criação do Objeto)
-		 * aluno1 é uma referência para o objeto Aluno*/
+		//new Aluno() é uma instância (criação do Objeto)
+		 // aluno1 é uma referência para o objeto Aluno
 		
 		aluno1.setNome(nome);
 		aluno1.setIdade(Integer.valueOf(idade));
@@ -49,32 +47,10 @@ public class TesteAluno {
 		aluno1.setNota3(Double.parseDouble(nota3));
 		aluno1.setNota4(Double.parseDouble(nota4));
 		
-		System.out.println("Nome é = " + aluno1.getNome());
-		System.out.println("Idade é = " + aluno1.getIdade());
-		System.out.println("Nascido em = " + aluno1.getDataNascimento());
-		System.out.println("Média da nota é = " + aluno1.getMediaNota());
-		System.out.println("Resultado = " + (aluno1.getAlunoAprovado() ? "Aprovado" : "Reprovado"));
-		System.out.println("Resultado 2 = " + aluno1.getAlunoAprovado2());
-		
-		System.out.println("--------------------------------------------------------------------");
-		
-		
-		Aluno aluno2 = new Aluno();
-		aluno2.setNome("Palloma");
-		aluno2.setIdade(29);
-		aluno2.setDataNascimento("28/02/1993");
-		
-		System.out.println("Nome é = " + aluno2.getNome());
-		System.out.println("Idade é = " + aluno2.getIdade());
-		System.out.println("Nascido em = " + aluno2.getDataNascimento());
-				
-		/*--------------------------------------------------------------------*/
-		
-		Aluno aluno3 = new Aluno();
-		
-		Aluno aluno4 = new Aluno("Maria");
-		
-		Aluno aluno5 = new Aluno("José", 50);
+		System.out.println(aluno1.toString());
+		System.out.println(aluno1);//Internamente chama o metodo toString()
+		System.out.println("Média do aluno = " + aluno1.getMediaNota());
+		System.out.println("Resultado = " + aluno1.getAlunoAprovado2());
 		
 	}
 
