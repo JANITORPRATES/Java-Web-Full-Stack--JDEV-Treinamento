@@ -9,7 +9,7 @@ public class TesteAluno {
 	/*Main é um método auto executável em Java*/
 	public static void main(String[] parametros) {
 		
-		String nome = JOptionPane.showInputDialog("Qual o nome do aluno?");
+		/*String nome = JOptionPane.showInputDialog("Qual o nome do aluno?");
 		String idade = JOptionPane.showInputDialog("Qual a idade?");
 		String dataNascimento = JOptionPane.showInputDialog("Data de nascimento?");
 		String rg = JOptionPane.showInputDialog("Registro Geral?");
@@ -50,8 +50,27 @@ public class TesteAluno {
 		System.out.println(aluno1.toString());
 		System.out.println(aluno1);//Internamente chama o metodo toString()
 		System.out.println("Média do aluno = " + aluno1.getMediaNota());
-		System.out.println("Resultado = " + aluno1.getAlunoAprovado2());
+		System.out.println("Resultado = " + aluno1.getAlunoAprovado2());*/
 		
+		//Equals e hashcode (Diferenciar e comparar objetos)
+		
+		Aluno aluno1 = new Aluno();
+		aluno1.setNome("Jânitor");
+		
+		Aluno aluno2 = new Aluno();
+		aluno2.setNome("Jânitor");
+		
+		//Na vida real aluno1 e aluno2 são exatamente o mesmo aluno
+		//No java aluno1 e aluno2 são 2 objetos diferentes
+		/*Se a gente quiser que no nosso código que a regra de negócio desse sistema
+		 * que esses dois objetos devem ser considerados iguais, a gente tem que 
+		 * sobrescrever os metódos Equals hascode */
+		
+		if (aluno1.equals(aluno2)) {
+			System.out.println("Alunos são iguais");
+		}else {
+			System.out.println("Alunos não são iguais");
+		}
 	}
 
 }
