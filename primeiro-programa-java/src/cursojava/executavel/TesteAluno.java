@@ -38,26 +38,16 @@ public class TesteAluno {
 		aluno1.setDataMatricula(matricula);
 		aluno1.setSerieMatriculado(serie);
 		
-		Disciplina disc1 = new Disciplina();
-		disc1.setDisciplina("Banco de dados");
-		disc1.setNota(80);
-		
-		Disciplina disc2 = new Disciplina();
-		disc2.setDisciplina("Java");
-		disc2.setNota(90);
-		
-		Disciplina disc3 = new Disciplina();
-		disc3.setDisciplina("Html");
-		disc3.setNota(97);
-		
-		Disciplina disc4 = new Disciplina();
-		disc4.setDisciplina("JavaScript");
-		disc4.setNota(85);
-		
-		aluno1.getDisciplinas().add(disc1);
-		aluno1.getDisciplinas().add(disc2);
-		aluno1.getDisciplinas().add(disc3);
-		aluno1.getDisciplinas().add(disc4);
+		for(int pos = 1; pos <= 4; pos++) {
+			String nomeDisciplina = JOptionPane.showInputDialog("Nome da disciplina " + pos + "?");
+			String notaDisciplina = JOptionPane.showInputDialog("Nota da disciplina " + pos + "?");
+			
+			Disciplina disciplina = new Disciplina();
+			disciplina.setDisciplina(nomeDisciplina);
+			disciplina.setNota(Double.valueOf(notaDisciplina));
+			
+			aluno1.getDisciplinas().add(disciplina);
+		}
 		
 		System.out.println(aluno1.toString());
 		System.out.println("Média do aluno = " + aluno1.getMediaNota());
