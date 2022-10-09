@@ -3,6 +3,7 @@ package cursojava.executavel;
 import javax.swing.JOptionPane;
 
 import cursojava.classes.Aluno;
+import cursojava.classes.Disciplina;
 
 public class TesteAluno {
 	
@@ -19,19 +20,6 @@ public class TesteAluno {
 		String matricula = JOptionPane.showInputDialog("Data da matricula");
 		String serie = JOptionPane.showInputDialog("Qual a serie");
 		String escola = JOptionPane.showInputDialog("Nome da escola");
-		
-		String disciplina1 = JOptionPane.showInputDialog("Disciplina 1?");
-		String nota1 = JOptionPane.showInputDialog("Nota 1");
-		
-		String disciplina2 = JOptionPane.showInputDialog("Disciplina 2?");
-		String nota2 = JOptionPane.showInputDialog("Nota 2");
-		
-		String disciplina3 = JOptionPane.showInputDialog("Disciplina 3?");
-		String nota3 = JOptionPane.showInputDialog("Nota 3");
-		
-		String disciplina4 = JOptionPane.showInputDialog("Disciplina 4?");
-		String nota4 = JOptionPane.showInputDialog("Nota 4");
-		
 		
 		Aluno aluno1;//Objeto ainda não existe na memória
 		aluno1 = new Aluno(); //agora passa a existir na memória
@@ -50,15 +38,26 @@ public class TesteAluno {
 		aluno1.setDataMatricula(matricula);
 		aluno1.setSerieMatriculado(serie);
 		
-		aluno1.getDisciplina().setNota1(Double.parseDouble(nota1));
-		aluno1.getDisciplina().setNota2(Double.parseDouble(nota2));
-		aluno1.getDisciplina().setNota3(Double.parseDouble(nota3));
-		aluno1.getDisciplina().setNota4(Double.parseDouble(nota4));
+		Disciplina disc1 = new Disciplina();
+		disc1.setDisciplina("Banco de dados");
+		disc1.setNota(80);
 		
-		aluno1.getDisciplina().setDisciplina1(disciplina1);
-		aluno1.getDisciplina().setDisciplina2(disciplina2);
-		aluno1.getDisciplina().setDisciplina3(disciplina3);
-		aluno1.getDisciplina().setDisciplina4(disciplina4);
+		Disciplina disc2 = new Disciplina();
+		disc2.setDisciplina("Java");
+		disc2.setNota(90);
+		
+		Disciplina disc3 = new Disciplina();
+		disc3.setDisciplina("Html");
+		disc3.setNota(97);
+		
+		Disciplina disc4 = new Disciplina();
+		disc4.setDisciplina("JavaScript");
+		disc4.setNota(85);
+		
+		aluno1.getDisciplinas().add(disc1);
+		aluno1.getDisciplinas().add(disc2);
+		aluno1.getDisciplinas().add(disc3);
+		aluno1.getDisciplinas().add(disc4);
 		
 		System.out.println(aluno1.toString());
 		System.out.println("Média do aluno = " + aluno1.getMediaNota());
