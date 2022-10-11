@@ -104,10 +104,14 @@ public class TesteAluno {
 	}
 		
 		for(Aluno aluno : alunos) {
-			System.out.println(aluno);
-			System.out.println("Média do aluno = " + aluno.getMediaNota());
-			System.out.println("Resultado = " + aluno.getAlunoAprovado2());
-			System.out.println("\n_____________________________________________\n");
+			if(aluno.getNome().equalsIgnoreCase("Janitor")) {
+				System.out.println(aluno);
+				System.out.println("Média do aluno = " + aluno.getMediaNota());
+				System.out.println("Resultado = " + aluno.getAlunoAprovado2());
+				System.out.println("\n_____________________________________________\n");
+				break;
+			}
+			
 		}
 		
 
