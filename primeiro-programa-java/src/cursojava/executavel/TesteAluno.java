@@ -96,6 +96,7 @@ public class TesteAluno {
 		}
 		
 		alunos.add(aluno1);
+		
 	}
 		for(int pos = 0; pos < alunos.size(); pos++) {
 			
