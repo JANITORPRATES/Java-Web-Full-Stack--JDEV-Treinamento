@@ -1,5 +1,7 @@
 package cursojava.executavel;
 
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 import cursojava.classes.Aluno;
@@ -23,6 +25,7 @@ public class TesteAluno {
 		*/
 		Aluno aluno1;//Objeto ainda não existe na memória
 		aluno1 = new Aluno(); //agora passa a existir na memória
+		List<Disciplina> listaDisciplinas = aluno1.getDisciplinas();
 		
 		//new Aluno() é uma instância (criação do Objeto)
 		 // aluno1 é uma referência para o objeto Aluno
@@ -38,7 +41,6 @@ public class TesteAluno {
 		aluno1.setDataMatricula(matricula);
 		aluno1.setSerieMatriculado(serie);*/
 
-		System.out.print("aqui");
 		for(int pos = 1; pos <= 4; pos++) {
 			String nomeDisciplina = JOptionPane.showInputDialog("Nome da disciplina " + pos + "?");
 			String notaDisciplina = JOptionPane.showInputDialog("Nota da disciplina " + pos + "?");
@@ -47,15 +49,52 @@ public class TesteAluno {
 			disciplina.setDisciplina(nomeDisciplina);
 			disciplina.setNota(Double.valueOf(notaDisciplina));
 			
-			aluno1.getDisciplinas().add(disciplina);
+			listaDisciplinas.add(disciplina);
 		}
 		
 		int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?");
 		
 		if(escolha == JOptionPane.YES_OPTION) {
-			String disciplinRemover = JOptionPane.showInputDialog("Qual a disciplina 1, 2, 3 ou 4?");
-			aluno1.getDisciplinas().remove(Integer.valueOf(disciplinRemover).intValue() - 1);
+			
+			int continuarRemover = JOptionPane.YES_OPTION;
+			int tamanho;
+			while(continuarRemover == JOptionPane.YES_OPTION) {
+				tamanho = listaDisciplinas.size();
+				String disciplinRemover = "";
+				if(tamanho == 1) {
+					escolha = JOptionPane.showConfirmDialog(null, "Resta apenas a disciplina "+ listaDisciplinas.get(0).getDisciplina() 
+					+ "\n tem certeza que quer remover?");
+					if(escolha == JOptionPane.YES_OPTION) {
+						listaDisciplinas.remove(0);
+						continuarRemover = JOptionPane.NO_OPTION;
+					}
+					
+				}else {
+					String opcoesDisciplinas = "";
+					for(int i = 0; i < tamanho; i++) {
+						opcoesDisciplinas += (i + 1) + " - " + listaDisciplinas.get(i).getDisciplina() + "\n";
+					}
+					
+					disciplinRemover = JOptionPane.showInputDialog("Qual disciplina deseja remover:\n" + opcoesDisciplinas);
+					int opcao = Integer.valueOf(disciplinRemover).intValue();
+					if(opcao > 0 && opcao <= tamanho) {
+						listaDisciplinas.remove(opcao - 1);
+						continuarRemover = JOptionPane.showConfirmDialog(null, "Continuar a remover?");
+					}else {
+						JOptionPane.showMessageDialog(null, "Opção inválida!!");
+					}
+							
+					
+				}
+				
+				//listaDisciplinas.remove(Integer.valueOf(disciplinRemover).intValue() - posicao);
+				//posicao++;
+				
+				
+			}//Fim do while
+			
 		}
+		
 		
 		System.out.println(aluno1.toString());
 		System.out.println("Média do aluno = " + aluno1.getMediaNota());
