@@ -101,6 +101,21 @@ public class TesteAluno {
 			
 			Aluno aluno = alunos.get(pos);
 			
+			if(aluno.getNome().equalsIgnoreCase("janitor")) {
+				
+				Aluno trocar = new Aluno();
+				trocar.setNome("Aluno foi trocado");
+				
+				Disciplina disciplina = new Disciplina();
+				disciplina.setDisciplina("Java");
+				disciplina.setNota(90);
+				
+				trocar.getDisciplinas().add(disciplina);
+				
+				alunos.set(pos, trocar);
+				aluno = alunos.get(pos);
+			}
+			
 			System.out.println("------------------------------------------------");
 			System.out.println("Aluno = " + aluno.getNome());
 			System.out.println("Média do aluno = " + aluno.getMediaNota());
@@ -110,7 +125,7 @@ public class TesteAluno {
 			for(int posd = 0; posd < aluno.getDisciplinas().size(); posd++) {
 				
 				Disciplina disc = aluno.getDisciplinas().get(posd);
-				System.out.println("Matéria = " + disc.getDisciplina() + "Nota = " + disc.getNota());
+				System.out.println("Matéria = " + disc.getDisciplina() + " Nota = " + disc.getNota());
 				
 			}
 		}
