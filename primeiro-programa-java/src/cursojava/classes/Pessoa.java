@@ -1,7 +1,9 @@
 package cursojava.classes;
 
-/*Classe pai ou classe master ou superclasse - Atributos comuns a todos os objetos filhos*/
-public class Pessoa {
+/*Classe pai ou classe master ou superclasse - Atributos comuns a todos os objetos filhos
+ * palavra chave abstract serve para impedir que se faça algo errado, 
+ * impede que Pessoa seja instanciada*/
+public abstract class Pessoa {
 	
 	protected String nome;
 	protected int idade;
