@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import cursojava.classes.Aluno;
 import cursojava.classes.Disciplina;
+import cursojava.classes.Secretario;
 import cursojava.constantes.StatusAluno;
 
 public class TesteAluno {
@@ -17,8 +18,12 @@ public class TesteAluno {
 
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
+		
+		Secretario secretario = new Secretario(); //Diretamente com o objeto
+		secretario.setLogin(login);
+		secretario.setSenha(senha);
 
-		if (login.equalsIgnoreCase("admin") && senha.equalsIgnoreCase("admin")) {
+		if (secretario.autenticar()) {
 
 			List<Aluno> alunos = new ArrayList<Aluno>();
 
@@ -78,6 +83,8 @@ public class TesteAluno {
 									+ listaDisciplinas.get(0).getDisciplina() + "\n tem certeza que quer remover?");
 							if (escolha == JOptionPane.YES_OPTION) {
 								listaDisciplinas.remove(0);
+								continuarRemover = JOptionPane.NO_OPTION;
+							}else {
 								continuarRemover = JOptionPane.NO_OPTION;
 							}
 
@@ -139,6 +146,8 @@ public class TesteAluno {
 				System.out.println("Aluno " + aluno.getNome() + " Resultado = " + aluno.getAlunoAprovado2()
 						+ " com média de = " + aluno.getMediaNota());
 			}
+		} else {
+			JOptionPane.showMessageDialog(null, "Acesso não permitido");
 		}
 
 	}// Fim do main
