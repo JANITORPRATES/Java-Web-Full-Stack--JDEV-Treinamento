@@ -7,10 +7,10 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import cursojava.classes.Aluno;
+import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
-import cursojava.classes.Secretario;
+import cursojava.classesauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
-import cursojava.interfaces.PermitirAcesso;
 
 public class TesteAluno {
 
@@ -20,9 +20,9 @@ public class TesteAluno {
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
 		
-		PermitirAcesso permitirAcesso = new Secretario(login, senha);
+		//PermitirAcesso permitirAcesso = new Secretario(login, senha);
 		
-		if (permitirAcesso.autenticar()) {
+		if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) { /*Vou travar o autorizar somente quem realmente tem o contrato 100% legitmo*/
 
 			List<Aluno> alunos = new ArrayList<Aluno>();
 
