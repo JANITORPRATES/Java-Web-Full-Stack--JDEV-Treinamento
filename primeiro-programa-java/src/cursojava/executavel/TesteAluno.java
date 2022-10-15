@@ -1,8 +1,10 @@
 package cursojava.executavel;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -18,6 +20,10 @@ public class TesteAluno {
 	public static void main(String[] parametros) {
 
 		try {
+			
+		File arquivo = new File("c://arquivo.txt");//Criar o arquivo no c: corrige o erro
+		Scanner scanner = new Scanner(arquivo);
+		
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
 		
@@ -25,23 +31,23 @@ public class TesteAluno {
 		
 		if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) { /*Vou travar o autorizar somente quem realmente tem o contrato 100% legitmo*/
 
-			List<Aluno> alunos = null; //new ArrayList<Aluno>() - correção do erro
+			List<Aluno> alunos = new ArrayList<Aluno>();
 
 			HashMap<String, List<Aluno>> maps = new HashMap<>();
 
 			for (int qtd = 1; qtd <= 1; qtd++) {
 
 				String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + qtd + "?");
-				/*
-				 * String idade = JOptionPane.showInputDialog("Qual a idade?"); String
-				 * dataNascimento = JOptionPane.showInputDialog("Data de nascimento?"); String
-				 * rg = JOptionPane.showInputDialog("Registro Geral?"); String cpf =
-				 * JOptionPane.showInputDialog("Qual é o CPF?"); String mae =
-				 * JOptionPane.showInputDialog("Nome da mãe?"); String pai =
-				 * JOptionPane.showInputDialog("Nome do pai?"); String matricula =
-				 * JOptionPane.showInputDialog("Data da matricula"); String serie =
-				 * JOptionPane.showInputDialog("Qual a serie"); String escola =
-				 * JOptionPane.showInputDialog("Nome da escola");
+				String idade = JOptionPane.showInputDialog("Qual a idade?");
+				
+				/* String dataNascimento = JOptionPane.showInputDialog("Data de nascimento?");
+				 * String rg = JOptionPane.showInputDialog("Registro Geral?");
+				 * String cpf = JOptionPane.showInputDialog("Qual é o CPF?");
+				 * String mae = JOptionPane.showInputDialog("Nome da mãe?");
+				 * String pai = JOptionPane.showInputDialog("Nome do pai?");
+				 * String matricula = JOptionPane.showInputDialog("Data da matricula");
+				 * String serie = JOptionPane.showInputDialog("Qual a serie");
+				 * String escola = JOptionPane.showInputDialog("Nome da escola");
 				 */
 				Aluno aluno1;// Objeto ainda não existe na memória
 				aluno1 = new Aluno(); // agora passa a existir na memória
@@ -50,8 +56,8 @@ public class TesteAluno {
 				// new Aluno() é uma instância (criação do Objeto)
 				// aluno1 é uma referência para o objeto Aluno
 				aluno1.setNome(nome);
-				/*
-				 * aluno1.setIdade(Integer.valueOf(idade));
+				aluno1.setIdade(Integer.valueOf(idade)); //tentar converter letra gera erro NumberFormatException
+				  /*
 				 * aluno1.setDataNascimento(dataNascimento); aluno1.setNomeMae(mae);
 				 * aluno1.setNomePai(pai); aluno1.setRegistroGeral(rg);
 				 * aluno1.setNumeroCpf(cpf); aluno1.setNomeEscola(escola);
@@ -151,7 +157,8 @@ public class TesteAluno {
 		}
 		
 		//aqui
-	}catch (Exception e) {
+	}catch (NumberFormatException e) {
+		StringBuilder saida = new StringBuilder();
 		
 		e.printStackTrace(); // Imprime erro no console Java
 		
@@ -159,12 +166,17 @@ public class TesteAluno {
 		System.out.println("Mensagem: " + e.getMessage());
 		
 		for(int i = 0; i < e.getStackTrace().length; i++) {
-			System.out.println("\nClasse que ocorreu o erro: " + e.getStackTrace()[i].getClassName());
-			System.out.println("\nMétodo que ocorreu o erro: " + e.getStackTrace()[i].getMethodName());
-			System.out.println("\nLinha que ocorreu o erro: " + e.getStackTrace()[i].getLineNumber());
-			System.out.println("\nNome da classe que gerou a exceção: " + e.getClass().getName());
+			saida.append("\nClasse que ocorreu o erro: " + e.getStackTrace()[i].getClassName());
+			saida.append("\nMétodo que ocorreu o erro: " + e.getStackTrace()[i].getMethodName());
+			saida.append("\nLinha que ocorreu o erro: " + e.getStackTrace()[i].getLineNumber());
+			saida.append("\nNome da classe que gerou a exceção: " + e.getClass().getName());
 		}
-		JOptionPane.showMessageDialog(null, "Erro ao processar notas");
+		JOptionPane.showMessageDialog(null, "Erro de conversão de numero" + saida.toString());
+	}catch (NullPointerException e) {
+		JOptionPane.showMessageDialog(null, "Opaa um null pointer exception: " + e.getClass());
+	}catch (Exception e){
+		e.printStackTrace();
+		JOptionPane.showMessageDialog(null, "Erro inesperado: " + e.getClass().getName());
 	}
 
 	}// Fim do main
