@@ -25,7 +25,7 @@ public class TesteAluno {
 		
 		if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) { /*Vou travar o autorizar somente quem realmente tem o contrato 100% legitmo*/
 
-			List<Aluno> alunos = null;
+			List<Aluno> alunos = null; //new ArrayList<Aluno>() - correção do erro
 
 			HashMap<String, List<Aluno>> maps = new HashMap<>();
 
@@ -152,7 +152,18 @@ public class TesteAluno {
 		
 		//aqui
 	}catch (Exception e) {
+		
 		e.printStackTrace(); // Imprime erro no console Java
+		
+		//Mensagem do erro ou causa
+		System.out.println("Mensagem: " + e.getMessage());
+		
+		for(int i = 0; i < e.getStackTrace().length; i++) {
+			System.out.println("\nClasse que ocorreu o erro: " + e.getStackTrace()[i].getClassName());
+			System.out.println("\nMétodo que ocorreu o erro: " + e.getStackTrace()[i].getMethodName());
+			System.out.println("\nLinha que ocorreu o erro: " + e.getStackTrace()[i].getLineNumber());
+			System.out.println("\nNome da classe que gerou a exceção: " + e.getClass().getName());
+		}
 		JOptionPane.showMessageDialog(null, "Erro ao processar notas");
 	}
 
