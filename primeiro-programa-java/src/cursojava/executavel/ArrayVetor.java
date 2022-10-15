@@ -14,12 +14,9 @@ public class ArrayVetor {
 		notas[2] = 6.8;
 		notas[3] = 9.5;
 		
-		System.out.println("nota 1 = " + notas[0]);
-		System.out.println("nota 2 = " + notas[1]);
-		System.out.println("nota 3 = " + notas[2]);
-		System.out.println("nota 4 = " + notas[3]);
-		System.out.println("nota 5 = " + notas[4]);
-		
+		for(int pos = 0; pos < notas.length; pos++) {
+			System.out.println("Nota " + (pos +  1) + " é = " + notas[pos]);
+		}
 	}
 
 }
