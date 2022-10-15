@@ -17,6 +17,7 @@ public class TesteAluno {
 	/* Main é um método auto executável em Java */
 	public static void main(String[] parametros) {
 
+		try {
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
 		
@@ -24,11 +25,11 @@ public class TesteAluno {
 		
 		if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) { /*Vou travar o autorizar somente quem realmente tem o contrato 100% legitmo*/
 
-			List<Aluno> alunos = new ArrayList<Aluno>();
+			List<Aluno> alunos = null;
 
 			HashMap<String, List<Aluno>> maps = new HashMap<>();
 
-			for (int qtd = 1; qtd <= 5; qtd++) {
+			for (int qtd = 1; qtd <= 1; qtd++) {
 
 				String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + qtd + "?");
 				/*
@@ -148,6 +149,12 @@ public class TesteAluno {
 		} else {
 			JOptionPane.showMessageDialog(null, "Acesso não permitido");
 		}
+		
+		//aqui
+	}catch (Exception e) {
+		e.printStackTrace(); // Imprime erro no console Java
+		JOptionPane.showMessageDialog(null, "Erro ao processar notas");
+	}
 
 	}// Fim do main
 }// Fim da classe
