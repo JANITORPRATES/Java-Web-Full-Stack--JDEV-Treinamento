@@ -14,7 +14,6 @@ import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
 import cursojava.classesauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
-import cursojava.excecao.ExcecaoProcessaNota;
 
 public class TesteAluno {
 
@@ -174,7 +173,7 @@ public class TesteAluno {
 		JOptionPane.showMessageDialog(null, "Erro de conversão de numero" + saida.toString());
 	}catch (NullPointerException e) {
 		JOptionPane.showMessageDialog(null, "Opaa um null pointer exception: " + e.getClass());
-	}catch (ExcecaoProcessaNota e){
+	}catch (FileNotFoundException e){
 		e.printStackTrace();
 		JOptionPane.showMessageDialog(null, "Erro da exceção customizada: " + e.getClass().getName());
 	}finally {/*Sempre é executado ocorrendo erro ou não. Pra quê o Finally sempre
@@ -185,12 +184,8 @@ public class TesteAluno {
 	}// Fim do main
 	
 	//throws joga a exceção pra cima ou seja quem chamou o método que se vira pra tratar a exceção
-	public static void lerArquivo() throws ExcecaoProcessaNota {
-		try {
+	public static void lerArquivo() throws FileNotFoundException {
 			File arquivo = new File("c://arquivo.txt");//Criar o arquivo no c: corrige o erro
 			Scanner scanner = new Scanner(arquivo); 
-		}catch(FileNotFoundException e) {
-			throw new ExcecaoProcessaNota(e.getMessage());
-		}
 	}
 }// Fim da classe
