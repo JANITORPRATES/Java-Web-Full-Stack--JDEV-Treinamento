@@ -1,6 +1,7 @@
 package cursojava.executavel;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +14,7 @@ import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
 import cursojava.classesauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
+import cursojava.excecao.ExcecaoProcessaNota;
 
 public class TesteAluno {
 
@@ -20,9 +22,13 @@ public class TesteAluno {
 	public static void main(String[] parametros) {
 
 		try {
+			try {
+				File arquivo = new File("c://arquivo.txt");//Criar o arquivo no c: corrige o erro
+				Scanner scanner = new Scanner(arquivo);
+			}catch(FileNotFoundException e) {
+				throw new ExcecaoProcessaNota("Vixe um erro no processamento do arquivo ao processar as notas");
+			}
 			
-		File arquivo = new File("c://arquivo.txt");//Criar o arquivo no c: corrige o erro
-		Scanner scanner = new Scanner(arquivo);
 		
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
@@ -177,6 +183,9 @@ public class TesteAluno {
 	}catch (Exception e){
 		e.printStackTrace();
 		JOptionPane.showMessageDialog(null, "Erro inesperado: " + e.getClass().getName());
+	}finally {/*Sempre é executado ocorrendo erro ou não. Pra quê o Finally sempre
+	é usado quando precisa executar um processo acontecendo erro ou não no sistema*/
+		JOptionPane.showMessageDialog(null, "Obrigado por aprender Java!!");
 	}
 
 	}// Fim do main
