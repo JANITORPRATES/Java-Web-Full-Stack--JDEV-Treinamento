@@ -22,14 +22,8 @@ public class TesteAluno {
 	public static void main(String[] parametros) {
 
 		try {
-			try {
-				File arquivo = new File("c://arquivo.txt");//Criar o arquivo no c: corrige o erro
-				Scanner scanner = new Scanner(arquivo);
-			}catch(FileNotFoundException e) {
-				throw new ExcecaoProcessaNota(e.getMessage());
-			}
-			
-		
+
+		lerArquivo();
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
 		
@@ -180,13 +174,23 @@ public class TesteAluno {
 		JOptionPane.showMessageDialog(null, "Erro de conversão de numero" + saida.toString());
 	}catch (NullPointerException e) {
 		JOptionPane.showMessageDialog(null, "Opaa um null pointer exception: " + e.getClass());
-	}catch (Exception e){
+	}catch (ExcecaoProcessaNota e){
 		e.printStackTrace();
-		JOptionPane.showMessageDialog(null, "Erro inesperado: " + e.getClass().getName());
+		JOptionPane.showMessageDialog(null, "Erro da exceção customizada: " + e.getClass().getName());
 	}finally {/*Sempre é executado ocorrendo erro ou não. Pra quê o Finally sempre
 	é usado quando precisa executar um processo acontecendo erro ou não no sistema*/
 		JOptionPane.showMessageDialog(null, "Obrigado por aprender Java!!");
 	}
 
 	}// Fim do main
+	
+	//throws joga a exceção pra cima ou seja quem chamou o método que se vira pra tratar a exceção
+	public static void lerArquivo() throws ExcecaoProcessaNota {
+		try {
+			File arquivo = new File("c://arquivo.txt");//Criar o arquivo no c: corrige o erro
+			Scanner scanner = new Scanner(arquivo); 
+		}catch(FileNotFoundException e) {
+			throw new ExcecaoProcessaNota(e.getMessage());
+		}
+	}
 }// Fim da classe
