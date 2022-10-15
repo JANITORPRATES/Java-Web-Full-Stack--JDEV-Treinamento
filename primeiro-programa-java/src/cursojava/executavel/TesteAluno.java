@@ -26,7 +26,7 @@ public class TesteAluno {
 				File arquivo = new File("c://arquivo.txt");//Criar o arquivo no c: corrige o erro
 				Scanner scanner = new Scanner(arquivo);
 			}catch(FileNotFoundException e) {
-				throw new ExcecaoProcessaNota("Vixe um erro no processamento do arquivo ao processar as notas");
+				throw new ExcecaoProcessaNota(e.getMessage());
 			}
 			
 		
