@@ -15,12 +15,15 @@ public class DatasEmJava {
 		
 		Date dataAtualHoje = formatoData.parse("16/10/2022");
 		
-		/*Se a data 1 é maior que a data 2*/
-		if(dataVencimentoBoleto.after(dataAtualHoje)) {//Posterior ou maior ou depois da data atual
-			System.out.println("O boleto não está vencido");
-		}else {
+		// After : se data 1 é maior que data 2
+		// Before : se data 1 é menor que a data 2
+		
+		if(dataVencimentoBoleto.before(dataAtualHoje)) {/*Se a data 1 é menor que a data 2*/
 			System.out.println("O boleto está vencido - URGENTE");
+		}else {
+			System.out.println("O boleto não está vencido");
 		}
+		
 	}
 
 }
