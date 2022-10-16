@@ -23,7 +23,17 @@ public class DataApi {
 		LocalDateTime dataAtualHoraAtual = LocalDateTime.now();
 		
 		System.out.println("Data e hora atual: " 
-					+ dataAtualHoraAtual.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+					+ dataAtualHoraAtual.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+		
+		System.out.println("Dia da semana: " + dataAtual.getDayOfWeek().name());
+		
+		System.out.println("Dia do mês: " + dataAtual.getDayOfMonth());
+		
+		System.out.println("Dia do ano: " + dataAtual.getDayOfYear());
+		
+		System.out.println("Mês: " + dataAtual.getMonth());
+		
+		System.out.println("Ano: " + dataAtual.getYear());
 		
 	}
 	
