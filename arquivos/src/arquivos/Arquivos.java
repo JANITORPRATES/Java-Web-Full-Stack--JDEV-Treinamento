@@ -16,9 +16,9 @@ public class Arquivos {
 		
 		FileWriter escreverNoArquivo = new FileWriter(arquivo);
 		
-		escreverNoArquivo.write("Meu texto no arquivo");
-		escreverNoArquivo.write("\nMinha segunda Linha");
-		escreverNoArquivo.write("\nMinha terceira Linha");
+		for(int i = 1; i <= 10; i++) {
+			escreverNoArquivo.write("Texto da minha linha " + i + "\n");
+		}
 		escreverNoArquivo.flush();
 		escreverNoArquivo.close();
 
