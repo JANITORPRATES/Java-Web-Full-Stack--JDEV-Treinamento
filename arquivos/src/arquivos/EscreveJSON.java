@@ -39,9 +39,9 @@ public class EscreveJSON {
 		
 		File arquivo = new File("E:\\CODIGOS\\Java-Web-Full-Stack-JDEV-Treinamento\\arquivos\\src\\arquivos\\fileJson.json");
 		
-		FileWriter fileWriter = new FileWriter(arquivo);
+		//FileWriter fileWriter = new FileWriter(arquivo);
 		
-		//OutputStreamWriter fileWriter = new OutputStreamWriter(new FileOutputStream(arquivo), "UTF-8");
+		OutputStreamWriter fileWriter = new OutputStreamWriter(new FileOutputStream(arquivo), "UTF-8");
 		
 		fileWriter.write(jsonUsuario);
 		fileWriter.flush();
