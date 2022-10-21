@@ -1,12 +1,15 @@
 package arquivos;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class EscreveJSON {
 
@@ -29,11 +32,16 @@ public class EscreveJSON {
 		usuarios.add(usuario1);
 		usuarios.add(usuario2);
 		
-		String jsonUsuario = new Gson().toJson(usuarios);
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String jsonUsuario = gson.toJson(usuarios);
 		
 		System.out.println(jsonUsuario);
 		
-		FileWriter fileWriter = new FileWriter(new File("E:\\CODIGOS\\Java-Web-Full-Stack-JDEV-Treinamento\\arquivos\\src\\arquivos\\fileJson.json"));
+		File arquivo = new File("E:\\CODIGOS\\Java-Web-Full-Stack-JDEV-Treinamento\\arquivos\\src\\arquivos\\fileJson.json");
+		
+		FileWriter fileWriter = new FileWriter(arquivo);
+		
+		//OutputStreamWriter fileWriter = new OutputStreamWriter(new FileOutputStream(arquivo), "UTF-8");
 		
 		fileWriter.write(jsonUsuario);
 		fileWriter.flush();
