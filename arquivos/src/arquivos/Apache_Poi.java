@@ -15,12 +15,6 @@ public class Apache_Poi {
 
 	public static void main(String[] paramentos) throws IOException {
 		
-		File arquivo = new File("E:\\CODIGOS\\Java-Web-Full-Stack-JDEV-Treinamento\\arquivos\\src\\arquivos\\arquivo_Excel.xls");
-		
-		if(!arquivo.exists()) {
-			arquivo.createNewFile();
-		}
-		
 		Pessoa pessoa1 = new Pessoa();
 		pessoa1.setNome("Jânitor");
 		pessoa1.setEmail("janitorcacule@hotmail.com");
@@ -47,7 +41,13 @@ public class Apache_Poi {
 		pessoas.add(pessoa3);
 		pessoas.add(pessoa4);
 		
-		HSSFWorkbook escreverNaPlanilha = new HSSFWorkbook(); 
+		File arquivo = new File("E:\\CODIGOS\\Java-Web-Full-Stack-JDEV-Treinamento\\arquivos\\src\\arquivos\\arquivo_Excel.xls");
+		
+		if(!arquivo.exists()) {
+			arquivo.createNewFile();
+		}
+		
+		HSSFWorkbook escreverNaPlanilha = new HSSFWorkbook();//Prepara a entrada do arquivo excel pra ler
 		HSSFSheet linhasPessoa = escreverNaPlanilha.createSheet("Planilha de pessoas");
 		
 		int numeroLinha = 0;
