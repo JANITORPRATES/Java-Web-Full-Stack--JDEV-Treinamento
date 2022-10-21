@@ -31,7 +31,7 @@ public class Arquivos {
 		pessoas.add(pessoa3);
 		
 		/*Pode vir do banco de dados ou qualquer fonte de dados*/
-		File arquivo = new File("E:\\CODIGOS\\Java-Web-Full-Stack-JDEV-Treinamento\\arquivos\\src\\arquivos\\arquivo.txt");
+		File arquivo = new File("E:\\CODIGOS\\Java-Web-Full-Stack-JDEV-Treinamento\\arquivos\\src\\arquivos\\arquivo.csv");
 		
 		if(!arquivo.exists()) {
 			arquivo.createNewFile();
