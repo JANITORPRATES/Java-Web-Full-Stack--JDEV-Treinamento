@@ -26,8 +26,13 @@ public class UserPosDAO {
 			connection.commit();// Salva no banco de dados
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
+			try {
+				connection.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 		}
 		
 	}
