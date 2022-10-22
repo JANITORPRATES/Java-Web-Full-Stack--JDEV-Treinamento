@@ -22,6 +22,9 @@ CRIAR UM REGISTRO NA TABELA userposjava
 INSERT INTO userposjava (id, nome, email)
 VALUES (1, 'Janitor', 'janitorcacule@hotmail.com');
 
+INSERT INTO public.userposjava(
+            id, nome, email)
+    VALUES (2, 'joão', 'teste@gmail.com');
 
 
 LER TODAS AS COLULAS (*) DA TABELA userposjava
