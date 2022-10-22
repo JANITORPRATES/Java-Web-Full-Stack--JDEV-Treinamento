@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class SingleConnection {
 
-	private static String url = "jdbc:postgresql://localhost:5432/pos-java";
+	private static String url = "jdbc:postgresql://localhost:5432/posjava";
 	private static String password = "admin";
 	private static String user = "postgres";
 	private static Connection connection = null;
@@ -25,7 +25,7 @@ public class SingleConnection {
 				Class.forName("org.postgresql.Driver");//Carrega os drivers do postgresql
 				connection = DriverManager.getConnection(url, user, password);
 				connection.setAutoCommit(false);//não salva automaticamente depois na aplicação a gente decide quando efetivamente salva os isert's, deletes etc
-				
+				System.out.println("Conectou com sucesso");
 			}
 			
 		} catch (Exception e) {
