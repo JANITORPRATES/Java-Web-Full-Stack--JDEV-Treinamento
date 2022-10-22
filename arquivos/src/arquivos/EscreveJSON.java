@@ -46,7 +46,7 @@ public class EscreveJSON {
 		//FileWriter fileWriter = new FileWriter(arquivo);
 		
 		OutputStreamWriter fileWriter = new OutputStreamWriter(new FileOutputStream(arquivo), "UTF-8");
-		
+				
 		fileWriter.write(jsonUsuario);
 		fileWriter.flush();
 		fileWriter.close();
