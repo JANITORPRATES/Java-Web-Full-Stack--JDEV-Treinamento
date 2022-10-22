@@ -17,5 +17,17 @@ CREATE TABLE userposjava (
 
 )
 
+CRIAR UM REGISTRO NA TABELA userposjava
+
+INSERT INTO userposjava (id, nome, email)
+VALUES (1, 'Janitor', 'janitorcacule@hotmail.com');
+
+
+
+LER TODAS AS COLULAS (*) DA TABELA userposjava
+
+SELECT * FROM userposjava
+
+
 
 */
