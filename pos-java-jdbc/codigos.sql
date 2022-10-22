@@ -32,5 +32,8 @@ LER TODAS AS COLULAS (*) DA TABELA userposjava
 SELECT * FROM userposjava
 
 
+SELECIONA SÓ A COLUNA id 
+
+SELECT id FROM userposjava
 
 */

@@ -1,5 +1,8 @@
 package pos_java_jdbc.pos_java_jdbc;
 
+import java.sql.SQLException;
+import java.util.List;
+
 import org.junit.Test;
 
 //import conexaojdbc.SingleConnection;
@@ -19,5 +22,23 @@ public class TesteBancoJdbc {
 		userposjava.setEmail("tadeu@gmail.com");
 		
 		userPosDAO.salvar(userposjava);
+	}
+	
+	@Test
+	public void initListar() {
+		UserPosDAO dao = new UserPosDAO();
+		
+		try {
+			List<UserPosJava> lista = dao.listar();
+			
+			for (UserPosJava userposjava : lista) {
+				System.out.println(userposjava);
+				System.out.println("--------------------------------");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }
