@@ -41,4 +41,19 @@ public class TesteBancoJdbc {
 		}
 		
 	}
+	
+	@Test
+	public void initBuscar() {
+		UserPosDAO dao = new UserPosDAO();
+		
+		try {
+			UserPosJava userposjava = dao.buscar(3L);
+			System.out.println(userposjava);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 }
