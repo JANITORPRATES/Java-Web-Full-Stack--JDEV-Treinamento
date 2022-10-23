@@ -69,4 +69,25 @@ CONSTRAINT telefone_id PRIMARY KEY (id));
 
 ALTER TABLE telefoneuser ADD FOREIGN KEY (usuariopessoa) REFERENCES userposjava(id)
 
+
+
+MOSTRAR TODOS OS DADOS UNIDOS DAS DUAS TABELAS
+SELECT * FROM telefoneuser AS fone INNER JOIN userposjava AS userp ON fone.usuariopessoa = userp.id
+
+
+MOSTRAR OS DADOS UNIDOS numero e nome DAS DUAS TABELAS
+SELECT numero, nome FROM telefoneuser AS fone INNER JOIN userposjava AS userp ON fone.usuariopessoa = userp.id
+
+MOSTRAR coluna nome antes da coluna numero
+SELECT nome, numero FROM telefoneuser AS fone INNER JOIN userposjava AS userp ON fone.usuariopessoa = userp.id
+
+MOSTRAR coluna nome, coluna numero MAIS todas as colunas da tabela inclusive repete as colunas nome e numero
+SELECT nome, numero, * FROM telefoneuser AS fone INNER JOIN userposjava AS userp ON fone.usuariopessoa = userp.id
+
+
+Selecionando todas as colunas da tabela telefoneusário juntanto com a tabela userposjava ONDE (ON) a tabela telefone na coluna de usuario é igual ao
+id da tabela userposjava ONDE (WHERE) usuário é 10
+SELECT * FROM telefoneuser AS fone INNER JOIN userposjava AS userp ON fone.usuariopessoa = userp.id WHERE userp.id = 10
+
+
 */
