@@ -52,4 +52,21 @@ ALTER TABLE userposjava ALTER COLUMN id SET DEFAULT nextval('usersequence'::regc
 DELETAR
 DELETE FROM userposjava WHERE id = " + id
 
+
+CONFIGURAR PRIMARY KEY
+ALTER TABLE userposjava ADD UNIQUE (id);
+
+
+CRIAÇÃO DE UMA TABELA COM CHAVE ESTRANGEIRA
+CREATE TABLE telefoneuser
+(
+id BIGINT NOT NULL,
+numero CHARACTER VARYING(255) NOT NULL,
+tipo CHARACTER VARYING(255) NOT NULL,
+usuariopessoa BIGINT NOT NULL,
+CONSTRAINT telefone_id PRIMARY KEY (id));
+
+
+ALTER TABLE telefoneuser ADD FOREIGN KEY (usuariopessoa) REFERENCES userposjava(id)
+
 */
