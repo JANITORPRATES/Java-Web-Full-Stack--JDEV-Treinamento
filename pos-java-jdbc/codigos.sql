@@ -28,12 +28,14 @@ INSERT INTO public.userposjava(
 
 
 LER TODAS AS COLULAS (*) DA TABELA userposjava
-
-SELECT * FROM userposjava
+	SELECT * FROM userposjava
 
 
 SELECIONA SÓ A COLUNA id 
+	SELECT id FROM userposjava
 
-SELECT id FROM userposjava
+
+ATUALIZA REGISTRO DA TABELA ONDE ID = 2
+UPDATE userposjava SET nome = 'nome atualizado' WHERE id = 2;
 
 */
