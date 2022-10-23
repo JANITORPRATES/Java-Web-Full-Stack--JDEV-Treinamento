@@ -49,5 +49,7 @@ start 3;
 CONFIGURAR O id COM A SEQUENCIA CRIADA
 ALTER TABLE userposjava ALTER COLUMN id SET DEFAULT nextval('usersequence'::regclass);
 
+DELETAR
+DELETE FROM userposjava WHERE id = " + id
 
 */
