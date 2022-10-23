@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import conexaojdbc.SingleConnection;
+import model.BeanUserFone;
 import model.Telefone;
 import model.UserPosJava;
 
@@ -136,5 +137,38 @@ public class UserPosDAO {
 			}
 		}
 	}
+	
+	public List<BeanUserFone> listaUserFone (Long idUser){
+		
+		List<BeanUserFone> beanUserFone = new ArrayList<BeanUserFone>();
+		
+		String sql = " SELECT nome, numero, email FROM telefoneuser AS fone ";
+		sql += " INNER JOIN userposjava AS userp ";
+		sql += " ON fone.usuariopessoa = userp.id";
+		sql += " WHERE userp.id = " + idUser;
+		
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			ResultSet resultado = statement.executeQuery();
+			
+			while(resultado.next()) {
+				BeanUserFone userFone = new BeanUserFone();
+				
+				userFone.setEmail(resultado.getString("email"));
+				userFone.setNome(resultado.getString("nome"));
+				userFone.setNumero(resultado.getString("numero"));
+				
+				beanUserFone.add(userFone);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return beanUserFone;
+		
+	}
+	
 	
 }//Fim da classe
