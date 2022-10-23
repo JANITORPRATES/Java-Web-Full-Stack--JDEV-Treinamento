@@ -19,12 +19,12 @@ public class UserPosDAO {
 	}
 	
 	public void salvar(UserPosJava objetoUserPosJava) {
-		String sql = "INSERT INTO userposjava (id, nome, email) VALUES (?, ?, ?)";
+														//posição   1 , 2 
+		String sql = "INSERT INTO userposjava (nome, email) VALUES (?, ?)";
 		try {
 			PreparedStatement crud_C = connection.prepareStatement(sql);
-			crud_C.setLong(1, objetoUserPosJava.getId());
-			crud_C.setString(2, objetoUserPosJava.getNome());
-			crud_C.setString(3, objetoUserPosJava.getEmail());
+			crud_C.setString(1, objetoUserPosJava.getNome());//substitui o ? na posição 1
+			crud_C.setString(2, objetoUserPosJava.getEmail());//substitui o ? na posição 2
 			crud_C.execute();
 			connection.commit();// Salva no banco de dados
 			
